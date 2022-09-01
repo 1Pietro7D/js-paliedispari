@@ -1,10 +1,12 @@
 console.log("miao");
-
+debugger;
 // Palindroma
 // Chiedere all’utente di inserire una parola
 // Creare una funzione per capire se la parola inserita è palindroma
 // SOLUTION 1 PALINDROME
-alert(returnPalindrome(prompt("inserisci una parola")));
+alert(
+  returnPalindrome(prompt("inserisci una parola").toLocaleLowerCase().trim())
+);
 
 function returnPalindrome(word) {
   let reverseWord = "";
@@ -20,15 +22,15 @@ function returnPalindrome(word) {
 }
 // Manca il controllo di inserire almeno una lettera altrimenti si rompe tutto
 // SOLUTION 2 PALINDROME
-const textToAnalize = document.getElementById("palindrome-text").value;
-
 function palindrome(word1) {
-  const reversed = word1.split("").reverse().join("");
-
+  let reversed = word1.split("").reverse().join("");
+  console.log(reversed);
   return word1 === reversed ? "palindroma" : "non è palindroma";
 }
+
 const buttonPalindrome = document.getElementById("button-palindrome");
 buttonPalindrome.addEventListener("click", function () {
+  const textToAnalize = document.getElementById("palindrome-text").value;
   const result = document.createElement("span");
   result.innerText = palindrome(textToAnalize);
   document.getElementById("palindrome-contenitor").appendChild(result);
@@ -36,7 +38,41 @@ buttonPalindrome.addEventListener("click", function () {
 
 // Pari e Dispari
 // L’utente sceglie pari o dispari e inserisce un numero da 1 a 5.
+let yourNumber;
+while (isNaN(yourNumber)) {
+  yourNumber = prompt("scegli il tuo numero");
+}
+let yourChoise;
+const optionEven = "pari";
+const optionOdd = "dispari";
+if (yourChoise != optionEven) {
+  console.log("eh si, siamo ancora diversi");
+}
+while (yourChoise == optionEven || optionOdd) {
+  let input = prompt("scegli pari o dispari");
+  yourChoise = input;
+  // PERCHÈ PER TUTTE LE DIVINITÀ CITATE NELL'ENCICLOPEDIA TUTTI CANI NONOSTANTE LE VARIABILI SIANO UGUALI NON VA LO STESSO?
+  console.log(yourChoise);
+  console.log(optionEven);
+  console.log(typeof yourChoise);
+  console.log(typeof optionEven);
+  if (yourChoise == optionEven) {
+    console.log(
+      "eh si, proprio cosi sono uguali ma io sono un ciclo while che non ti vuole lasciare"
+    );
+  }
+}
 // Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
-// Sommiamo i due numeri
+const random = Math.floor(Math.random() * 5) + 1;
+// Sommiamo i due numeri.
+const sum = yourNumber + random;
 // Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione)
+if (
+  (sum % 2 == 0 && yourChoise == optionEven) ||
+  (sum % 2 != 0 && yourChoise == optionOdd)
+) {
+  alert("hai vinto");
+} else {
+  alert("hai perso");
+}
 // Dichiariamo chi ha vinto.
