@@ -48,18 +48,12 @@ const optionOdd = "dispari";
 if (yourChoise != optionEven) {
   console.log("eh si, siamo ancora diversi");
 }
-while (yourChoise == optionEven || optionOdd) {
+while (yourChoise !== optionEven && yourChoise !== optionOdd) {
   let input = prompt("scegli pari o dispari");
   yourChoise = input;
-  // PERCHÈ PER TUTTE LE DIVINITÀ CITATE NELL'ENCICLOPEDIA TUTTI CANI NONOSTANTE LE VARIABILI SIANO UGUALI NON VA LO STESSO?
-  console.log(yourChoise);
-  console.log(optionEven);
-  console.log(typeof yourChoise);
-  console.log(typeof optionEven);
-  if (yourChoise == optionEven) {
-    console.log(
-      "eh si, proprio cosi sono uguali ma io sono un ciclo while che non ti vuole lasciare"
-    );
+
+  if (yourChoise == optionEven || optionOdd) {
+    console.log("eh si, proprio cosi sono uguali");
   }
 }
 // Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione).
